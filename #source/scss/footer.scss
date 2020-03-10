@@ -1,0 +1,87 @@
+$j: center;
+$c: center;
+$w: wrap;
+
+@mixin jcw($j, $c, $w) {
+  display: flex;
+  justify-content: $j;
+  align-items: $c;
+  flex-wrap: $w;
+}
+
+.footer {
+  background: #0f0f0f;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  z-index: 0;
+  padding: 0 20px;
+  color: #939394;
+  a {
+    color: #939394;
+    &:hover {
+      color: #b7b7b8;
+    }
+  }
+  &__body {
+    max-width: 1170px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 0 100px 0;
+  }
+  &__links {
+    @include jcw(flex-start, $c, $w);
+    margin: 0 -10px;
+    a {
+      padding: 0 10px;
+      img {
+        margin-left: 5px;
+      }
+    }
+  }
+  &__logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff !important;
+  }
+  &__uls {
+    @include jcw(space-between, flex-start, $w);
+    margin-top: 30px;
+    ul {
+      flex: 0 0 22%;
+      border-top: 0.5px solid;
+      li {
+        margin-top: 10px;
+        &:first-of-type {
+          margin: 20px 0;
+          color: #ffd200;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  &__copy {
+    @include jcw(space-between, flex-end, $w);
+    margin-top: 35px;
+  }
+  &__call {
+    font-size: 22.5px;
+    font-weight: bold;
+    color: #fff !important;
+  }
+}
+
+@media (max-width: 1200px) {
+}
+@media (max-width: 992px) {
+}
+@media (max-width: 767px) {
+  .footer__links,
+  .footer__copy,
+  .footer__uls {
+    justify-content: center;
+  }
+  .footer__uls ul {
+    flex: 0 0 auto;
+    margin-bottom: 20px;
+  }
+}
